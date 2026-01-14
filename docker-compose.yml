@@ -1,0 +1,10 @@
+services:
+  keycloak:
+    container_name: ${KEYCLOAK_CONTAINER_NAME:-keycloak}
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "${PORT}:8080"
+    command: ["start", "--optimized"]
+    restart: unless-stopped
